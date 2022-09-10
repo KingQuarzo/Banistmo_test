@@ -1,14 +1,15 @@
 package runners;
-import io.cucumber.junit.CucumberOptions;
+
+import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
-import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
+import static cucumber.api.SnippetType.CAMELCASE;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/comprarCursosWeb.feature",
-        glue = "stepdefinition",
+        features = "src/test/resources/features/compraCursosWeb.feature",
+        glue = "stepdefinitions",
         snippets = CAMELCASE)
 public class CompraCursoWebRunner {
 }

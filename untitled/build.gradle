@@ -1,31 +1,39 @@
-plugins {
-    id 'java'
-}
-
-group 'org.example'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-
-
-    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit
-    implementation 'net.serenity-bdd:serenity-junit:3.3.1'
-
-    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
-    testImplementation 'net.serenity-bdd:serenity-cucumber:3.3.1'
-
-    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core
-    implementation 'net.serenity-bdd:serenity-core:3.2.5'
-
-
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:2.0.45')
+    }
 }
 
-test {
-    useJUnitPlatform()
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java-library'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+dependencies {
+    testImplementation 'net.serenity-bdd:serenity-core:2.0.45'
+    testImplementation 'net.serenity-bdd:serenity-junit:2.0.45'
+    testImplementation('junit:junit:4.12')
+    implementation "net.serenity-bdd:serenity-core:2.0.47"
+    implementation "net.serenity-bdd:serenity-junit:2.0.47"
+    implementation "net.serenity-bdd:serenity-cucumber:1.9.35"
+    implementation "net.serenity-bdd:serenity-screenplay:2.0.47"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:2.0.47"
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+gradle.startParameter.continueOnFailure = true
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }

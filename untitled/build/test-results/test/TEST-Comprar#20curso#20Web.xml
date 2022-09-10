@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Comprar curso Web" tests="1" skipped="1" failures="0" errors="0" timestamp="2022-09-10T18:09:47" hostname="FM-51" time="0.012">
+  <properties/>
+  <testcase name="Comprar cursos y modificar los articulos de compra en carrito" classname="Comprar curso Web" time="0.012">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
